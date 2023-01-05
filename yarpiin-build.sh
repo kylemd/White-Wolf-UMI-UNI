@@ -29,9 +29,9 @@ KERNELFLASHER_DIR="$BASE_DIR/Kernel_Flasher"
 MODULES_DIR="$KERNELFLASHER_DIR/modules/system/lib/modules"
 
 # Toolchain paths
-CLANG_KERNEL_VER="clang-r468909b"
+CLANG_REVISION="clang-r450784e"
 TOOLCHAIN_DIR="$BASE_DIR/Toolchains"
-CLANG_DIR="$TOOLCHAIN_DIR/clang/$CLANG_KERNEL_VERSION/bin"
+CLANG_DIR="$TOOLCHAIN_DIR/clang/$CLANG_REVISION/bin"
 GCC_DIR="$TOOLCHAIN_DIR/gcc/bin"
 
 # Kernel Details
