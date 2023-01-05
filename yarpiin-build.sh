@@ -8,6 +8,10 @@ restore='\033[0m'
 
 clear
 
+# Build system vars
+BUILD_USER=""
+BASE_DIR="/home/$BUILD_USER/AndroidBuilds"
+
 # Resources
 THREAD="-j$(grep -c ^processor /proc/cpuinfo)"
 KERNEL="Image"
@@ -19,18 +23,18 @@ CMIDEFCONFIG="yarpiin_cmi_defconfig"
 CASDEFCONFIG="yarpiin_cas_defconfig"
 
 # Build dirs
-KERNEL_DIR="/home/yarpiin/Android/Kernel/Xiaomi/White-Wolf-UMI-UNI"
+KERNEL_DIR="$BASE_DIR/Kernel/Xiaomi/White-Wolf-UMI-UNI"
 RESOURCE_DIR="$KERNEL_DIR/.."
-KERNELFLASHER_DIR="/home/yarpiin/Android/Kernel/Xiaomi/Kernel_Flasher"
-MODULES_DIR="/home/yarpiin/Android/Kernel/Xiaomi/Kernel_Flasher/modules/system/lib/modules"
+KERNELFLASHER_DIR="$BASE_DIR/Kernel_Flasher"
+MODULES_DIR="$KERNELFLASHER_DIR/modules/system/lib/modules"
 
 # Toolchain paths
-TOOLCHAIN_DIR="/home/yarpiin/Android/Toolchains"
-CLANG_DIR="/home/yarpiin/Android/Toolchains/google-clang/bin"
-GCC_DIR="/home/yarpiin/Android/Toolchains/google-gcc/bin"
+TOOLCHAIN_DIR="$BASE_DIR/Toolchains"
+CLANG_DIR="$TOOLCHAIN_DIR/clang/bin"
+GCC_DIR="$TOOLCHAIN_DIR/gcc/bin"
 
 # Kernel Details
-YARPIIN_VER="WHITE WOLF KERNEL MI10 5G / PRO"
+YARPIIN_VER="WHITE WOLF KERNEL MI10 5G/PRO/ULTRA"
 BASE_YARPIIN_VER="WHITE.WOLF.UNI.R."
 UMI_VER="UMI"
 CMI_VER="CMI"
@@ -43,14 +47,14 @@ YARPIIN_CAS_VER="$BASE_YARPIIN_VER$CAS_VER$VER"
 # Vars
 export ARCH=arm64
 export SUBARCH=arm64
-export KBUILD_BUILD_USER=yarpiin
+export KBUILD_BUILD_USER=$BUILD_USER
 export KBUILD_BUILD_HOST=kernel
 
 # Image dirs
 ZIMAGE_DIR="$KERNEL_DIR/out/arch/arm64/boot"
 
 # Output dir
-ZIP_MOVE="/home/yarpiin/Android/Kernel/Zip"
+ZIP_MOVE="$BASE_DIR/Kernel/Zip"
 
 # Functions
 function clean_all {
