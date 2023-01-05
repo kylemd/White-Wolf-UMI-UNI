@@ -23,7 +23,7 @@ CMIDEFCONFIG="yarpiin_cmi_defconfig"
 CASDEFCONFIG="yarpiin_cas_defconfig"
 
 # Build dirs
-KERNEL_DIR="$BASE_DIR/Kernel/Xiaomi/White-Wolf-UMI-UNI"
+KERNEL_DIR="$BASE_DIR/White-Wolf-UMI-UNI"
 RESOURCE_DIR="$KERNEL_DIR/.."
 KERNELFLASHER_DIR="$BASE_DIR/Kernel_Flasher"
 MODULES_DIR="$KERNELFLASHER_DIR/modules/system/lib/modules"
