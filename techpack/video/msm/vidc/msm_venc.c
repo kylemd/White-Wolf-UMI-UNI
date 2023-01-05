@@ -4569,20 +4569,6 @@ int handle_all_intra_restrictions(struct msm_vidc_inst *inst)
 	else
 		return 0;
 
-	s_vpr_h(inst->sid, "All Intra(IDRs) Encoding\n");
-	/* check codec and profile */
-	f = &inst->fmts[OUTPUT_PORT].v4l2_fmt;
-	codec = get_hal_codec(f->fmt.pix_mp.pixelformat, inst->sid);
-	if (codec != HAL_VIDEO_CODEC_HEVC && codec != HAL_VIDEO_CODEC_H264) {
-		s_vpr_e(inst->sid, "Unsupported codec for all intra\n");
-		return -ENOTSUPP;
-	}
-	if (codec == HAL_VIDEO_CODEC_HEVC &&
-		inst->profile == HFI_HEVC_PROFILE_MAIN10) {
-		s_vpr_e(inst->sid, "Unsupported HEVC profile for all intra\n");
-		return -ENOTSUPP;
-	}
-
 	/* CBR_CFR is one of the advertised rc mode for HEVC encoding.
 	 * However, all-intra is intended for quality bitstream. Hence,
 	 * fallback to VBR RC mode if client needs all-intra encoding.
